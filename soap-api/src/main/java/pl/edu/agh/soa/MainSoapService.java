@@ -13,8 +13,7 @@ import javax.jws.WebService;
 import javax.jws.WebParam;
 import javax.jws.WebResult;
 import javax.xml.bind.annotation.XmlElement;
-import java.io.FileOutputStream;
-import java.util.Base64;
+import javax.xml.bind.annotation.XmlElementWrapper;
 import java.util.List;
 
 @Stateless
@@ -42,6 +41,14 @@ public class MainSoapService {
     public Student getStudent(@WebParam(name = "studentId") @XmlElement(required = true) Integer studentId)
     {
         return db.getStudent(studentId);
+    }
+
+    @WebMethod
+    @WebResult(name = "students")
+    @PermitAll
+    public List<Student> getStudents()
+    {
+        return db.getStudents();
     }
 
     @WebMethod
@@ -75,7 +82,7 @@ public class MainSoapService {
     @PermitAll
     public List<Student> filterBySubject(@WebParam(name = "subject") @XmlElement(required = true) String subjectName)
     {
-        return db.filterBySubject(new Subject(subjectName));
+        return db.filterBySubject(subjectName);
     }
 
     @WebMethod
@@ -93,17 +100,7 @@ public class MainSoapService {
         if (!db.containsStudent(studentId))
             return "Could not find student in database";
 
-        String base64Image = db.getStudentAvatar(studentId);
-
-        String destinationFilepath = "/home/marek/SOA/avatars" + studentId.toString() + ".jpg";
-        try (FileOutputStream imageOutFile = new FileOutputStream(destinationFilepath)) {
-            byte[] imageByteArray = Base64.getDecoder().decode(base64Image);
-            imageOutFile.write(imageByteArray);
-        } catch (Exception e) {
-            return "";
-        }
-
-        return base64Image;
+        return db.getStudentAvatar(studentId);
     }
 
 }

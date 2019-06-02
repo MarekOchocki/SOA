@@ -25,7 +25,7 @@
         <version>1.0</version>
     </parent>
 
-    <artifactId>soap-api</artifactId>
+    <artifactId>rest-connector</artifactId>
     <packaging>ejb</packaging>
 
     <name>soap: EJB Module</name>
@@ -120,7 +120,21 @@
             <version>1.0</version>
             <scope>compile</scope>
         </dependency>
-
+        <dependency>
+            <groupId>org.jboss.resteasy</groupId>
+            <artifactId>resteasy-client</artifactId>
+            <version>3.0.2.Final</version>
+        </dependency>
+        <dependency>
+            <groupId>org.jboss.resteasy</groupId>
+            <artifactId>resteasy-jackson-provider</artifactId>
+            <version>2.3.2.Final</version>
+        </dependency>
+        <dependency>
+            <groupId>javax.ws.rs</groupId>
+            <artifactId>javax.ws.rs-api</artifactId>
+            <version>2.0</version>
+        </dependency>
     </dependencies>
 
     <build>

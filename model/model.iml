@@ -3,34 +3,11 @@
   <component name="NewModuleRootManager" LANGUAGE_LEVEL="JDK_1_8">
     <output url="file://$MODULE_DIR$/target/classes" />
     <output-test url="file://$MODULE_DIR$/target/test-classes" />
-    <content url="file://$MODULE_DIR$/../model/src/main/java1">
-      <sourceFolder url="file://$MODULE_DIR$/../model/src/main/java1" isTestSource="false" />
-    </content>
-    <content url="file://$MODULE_DIR$/../model/src/main/resources">
-      <sourceFolder url="file://$MODULE_DIR$/../model/src/main/resources" type="java-resource" />
-    </content>
-    <content url="file://$MODULE_DIR$/../model/src/test/java">
-      <sourceFolder url="file://$MODULE_DIR$/../model/src/test/java" isTestSource="true" />
-    </content>
-    <content url="file://$MODULE_DIR$/../model/src/test/resources">
-      <sourceFolder url="file://$MODULE_DIR$/../model/src/test/resources" type="java-test-resource" />
-    </content>
     <content url="file://$MODULE_DIR$">
       <sourceFolder url="file://$MODULE_DIR$/src/main/java" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/src/main/resources" type="java-resource" />
       <sourceFolder url="file://$MODULE_DIR$/src/test/java" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/src/test/resources" type="java-test-resource" />
       <excludeFolder url="file://$MODULE_DIR$/target" />
-    </content>
-    <content url="file://$MODULE_DIR$/../soap-connector/src/main/java" />
-    <content url="file://$MODULE_DIR$/../soap-connector/src/main/resources">
-      <sourceFolder url="file://$MODULE_DIR$/../soap-connector/src/main/resources" type="java-resource" />
-    </content>
-    <content url="file://$MODULE_DIR$/../soap-connector/src/test/java">
-      <sourceFolder url="file://$MODULE_DIR$/../soap-connector/src/test/java" isTestSource="true" />
-    </content>
-    <content url="file://$MODULE_DIR$/../soap-connector/src/test/resources">
-      <sourceFolder url="file://$MODULE_DIR$/../soap-connector/src/test/resources" type="java-test-resource" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
@@ -70,6 +47,5 @@
     <orderEntry type="library" name="Maven: org.jboss.ws:jbossws-api:1.1.2.Final" level="project" />
     <orderEntry type="library" name="Maven: jboss:jboss-annotations-ejb3:4.2.2.GA" level="project" />
     <orderEntry type="library" name="Maven: javax.annotation:javax.annotation-api:1.3.2" level="project" />
-    <orderEntry type="module" module-name="model" />
   </component>
 </module>

@@ -1,8 +1,6 @@
 package pl.edu.agh.soa;
 
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.*;
 import java.util.ArrayList;
 
 @XmlType(name = "student")
@@ -10,6 +8,8 @@ import java.util.ArrayList;
 public class Student {
     public String name;
     public Integer id;
+    @XmlElementWrapper
+    @XmlElement(name = "subject")
     public ArrayList<Subject> subList;
     public String avatar;
 
@@ -29,9 +29,9 @@ public class Student {
         this.subList = subList;
     }
 
-    public Boolean containsSubject(Subject subj)
+    public Boolean containsSubject(String subjName)
     {
-        return subList.stream().anyMatch( s -> s.equals(subj));
+        return subList.stream().anyMatch( s -> s.name.equals(subjName));
     }
 
     public void addSubject(Subject subj)

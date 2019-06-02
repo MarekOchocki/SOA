@@ -4,7 +4,6 @@ import javax.annotation.PostConstruct;
 import javax.ejb.Singleton;
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileOutputStream;
 import java.util.ArrayList;
 import java.util.*;
 import java.util.stream.Collectors;
@@ -83,6 +82,15 @@ public class Database {
         return true;
     }
 
+    public Boolean updateName(Integer studentId, String new_name)
+    {
+        if(!containsStudent(studentId))
+            return false;
+        Student s = getStudent(studentId);
+        s.name = new_name;
+        return true;
+    }
+
     public Boolean removeSubject(Integer studentId, Subject subject)
     {
         if(!containsStudent(studentId))
@@ -95,14 +103,14 @@ public class Database {
     public String getStudentAvatar(Integer studentId)
     {
         if(!containsStudent(studentId))
-            return "";
+            return null;
         Student s = getStudent(studentId);
         return s.getAvatar();
     }
 
-    public List<Student> filterBySubject(Subject subj)
+    public List<Student> filterBySubject(String subjName)
     {
-        return students.stream().filter(s -> s.containsSubject(subj)).collect(Collectors.toList());
+        return students.stream().filter(s -> s.containsSubject(subjName)).collect(Collectors.toList());
     }
 
     public List<Student> filterByName(String name)

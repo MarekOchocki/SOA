@@ -9,7 +9,7 @@ public class Student {
     public String name;
     public Integer id;
     @XmlElementWrapper
-    @XmlElement(name = "subject")
+    @XmlElement(name = "subList")
     public ArrayList<Subject> subList;
     public String avatar;
 
@@ -74,5 +74,18 @@ public class Student {
 
     public void setSubList(ArrayList<Subject> subList) {
         this.subList = subList;
+    }
+
+    public String toString()
+    {
+        String out = id.toString() + ": " + name + " (";
+        for(int i = 0; i < subList.size(); i++)
+        {
+            if(i != 0)
+                out += ", ";
+            out += subList.get(i).toString();
+        }
+        out += ")";
+        return out;
     }
 }

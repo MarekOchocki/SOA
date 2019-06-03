@@ -3,7 +3,6 @@ import io.jsonwebtoken.Jwts;
 
 import javax.crypto.spec.SecretKeySpec;
 import java.security.Key;
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
 import java.util.Date;
@@ -21,7 +20,7 @@ public class TokenGenerator {
         return Jwts.builder().
                 setSubject(username)
                 .signWith(getKey())
-                .setExpiration(Date.from(LocalDateTime.now().plusDays(1).atZone(ZoneId.systemDefault()).toInstant()))
+                .setExpiration(Date.from(LocalDateTime.now().plusMinutes(15L).atZone(ZoneId.systemDefault()).toInstant()))
                 .compact();
     }
 }
